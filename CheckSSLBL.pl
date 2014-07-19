@@ -40,7 +40,7 @@ my $IP_ADDR = qr/\d+\.\d+\.\d+\.\d+/;
 my $c       = 0;
 
 while (<>) {
-    chomp;    # strip record separator
+    chomp;
 
     for ($_) {
 
@@ -77,7 +77,7 @@ m/New TCP connection #(\d+): ($IP_ADDR)\(\d+\) <-> ($IP_ADDR)\(\d+\)/
                   Crypt::OpenSSL::X509->new_from_string( $der_encoded_data,
                     Crypt::OpenSSL::X509::FORMAT_ASN1 );
                 my $thumbprint = $x509->fingerprint_sha1();
-                $thumbprint = lc substr $thumbprint, 17, 59;
+                $thumbprint = lc $thumbprint;
                 $thumbprint =~ s/://g;
                 if ( exists( $bad_thumbprints{$thumbprint} ) ) {
                     print
