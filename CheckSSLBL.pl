@@ -3,7 +3,6 @@ use warnings;
 use Text::CSV;
 use Time::HiRes;
 use Crypt::OpenSSL::X509;
-use MIME::Base64;
 
 use v5.14;
 
